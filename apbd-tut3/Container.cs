@@ -21,8 +21,11 @@ public class Container
     
     public int MaxPayload { get; set; }
 
-    public Container()
+    public Container(int Height, int TareWeight, int Depth)
     {
+        this.Height = Height;
+        this.TareWeight = TareWeight;
+        this.Depth = Depth;
         CargoMass = 0;
         _containerNumber = ++_lastContainerNumber;
     }
