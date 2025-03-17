@@ -6,9 +6,9 @@ public class LiquidContainer : Container, IHazardNotifier
     
     public bool HazardousCargo { get; set; }
     
-    public LiquidContainer(int Height, int TareWeight, int Depth) : base(Height, TareWeight, Depth)
+    public LiquidContainer(int height, int tareWeight, int depth, bool hazardousCargo) : base(height, tareWeight, depth)
     {
-        
+        HazardousCargo = hazardousCargo;
     }
 
     public void Notify(string serialNumber, string description)

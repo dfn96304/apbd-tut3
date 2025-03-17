@@ -4,7 +4,7 @@ public class GasContainer : Container, IHazardNotifier
 {
     public new const string ContainerType = "G";
     
-    public GasContainer(int Height, int TareWeight, int Depth) : base(Height, TareWeight, Depth)
+    public GasContainer(int height, int tareWeight, int depth, int maxPayload) : base(height, tareWeight, depth, maxPayload)
     {
         
     }

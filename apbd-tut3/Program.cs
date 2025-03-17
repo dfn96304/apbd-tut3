@@ -1,3 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using apbd_tut3;
 
-Console.WriteLine("Hello, World!");
+Container c1 = new Container(200, 100, 1000);

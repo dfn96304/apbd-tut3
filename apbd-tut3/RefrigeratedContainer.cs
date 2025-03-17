@@ -18,12 +18,13 @@ public class RefrigeratedContainer : Container
         { "Eggs", 19 }
     };
     
-    public string? ProductType { get; set; }
+    public string ProductType { get; set; }
     public double Temperature { get; set; }
     
-    public RefrigeratedContainer(int Height, int TareWeight, int Depth) : base(Height, TareWeight, Depth)
+    public RefrigeratedContainer(int height, int tareWeight, int depth, string productType, double temperature) : base(height, tareWeight, depth)
     {
-        ProductType = null;
+        ProductType = productType;
+        Temperature = temperature;
     }
     
     public void LoadContainer(string ProductType, int mass)
