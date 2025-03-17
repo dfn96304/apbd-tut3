@@ -11,7 +11,7 @@ public class Container
     private static int _lastContainerNumber = 0;
     private int _containerNumber;
     
-    private string SerialNumber
+    public string SerialNumber
     {
         get
         {
@@ -30,12 +30,12 @@ public class Container
         _containerNumber = ++_lastContainerNumber;
     }
     
-    public void EmptyContainer()
+    public virtual void EmptyContainer()
     {
         CargoMass = 0;
     }
 
-    public void LoadContainer(int mass)
+    public virtual void LoadContainer(int mass)
     {
         if (mass <= 0)
             throw new ArgumentOutOfRangeException("Mass cannot be negative or zero");
