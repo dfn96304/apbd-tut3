@@ -2,37 +2,44 @@
 
 public class Container
 {
-    public int cargoMass { get; set; }
-    public int height { get; set; }
-    public int tareWeight { get; set; }
-    public int depth { get; set; }
+    public int CargoMass { get; set; }
+    public int Height { get; set; }
+    public int TareWeight { get; set; }
+    public int Depth { get; set; }
 
-    private string containerType;
-    private string containerNumber;
+    public const string ContainerType = "C";
+    private static int _lastContainerNumber = 0;
+    private int _containerNumber;
     
-    private string serialNumber
+    private string SerialNumber
     {
         get
         {
-            return "KON-"+containerType+"-"+containerNumber;
+            return "KON-"+ContainerType+"-"+_containerNumber;
         }
     }
     
-    public int maxPayload { get; set; }
+    public int MaxPayload { get; set; }
 
-    public void emptyContainer()
+    public Container()
     {
-        cargoMass = 0;
+        CargoMass = 0;
+        _containerNumber = ++_lastContainerNumber;
+    }
+    
+    public void EmptyContainer()
+    {
+        CargoMass = 0;
     }
 
-    public void loadContainer(int mass)
+    public void LoadContainer(int mass)
     {
         if (mass <= 0)
             throw new ArgumentOutOfRangeException("Mass cannot be negative or zero");
         
-        if(cargoMass+mass > maxPayload)
+        if(CargoMass+mass > MaxPayload)
             throw new OverflowException();
 
-        cargoMass += mass;
+        CargoMass += mass;
     }
 }
