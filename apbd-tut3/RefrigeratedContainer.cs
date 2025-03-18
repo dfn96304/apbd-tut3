@@ -21,7 +21,7 @@ public class RefrigeratedContainer : Container
     public string ProductType { get; set; }
     public double Temperature { get; set; }
     
-    public RefrigeratedContainer(int height, int tareWeight, int depth, string productType, double temperature) : base(height, tareWeight, depth)
+    public RefrigeratedContainer(int height, int tareWeight, int depth, int maxPayload, string productType, double temperature) : base(height, tareWeight, depth, maxPayload)
     {
         ProductType = productType;
         Temperature = temperature;

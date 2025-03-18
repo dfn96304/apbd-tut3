@@ -9,13 +9,13 @@ public class Container
 
     public const string ContainerType = "C";
     private static int _lastContainerNumber = 0;
-    private int _containerNumber;
+    public int ContainerNumber { get; }
     
     public string SerialNumber
     {
         get
         {
-            return "KON-"+ContainerType+"-"+_containerNumber;
+            return "KON-"+ContainerType+"-"+ContainerNumber;
         }
     }
     
@@ -28,7 +28,7 @@ public class Container
         this.Depth = depth;
         this.MaxPayload = maxPayload;
         CargoMass = 0;
-        _containerNumber = ++_lastContainerNumber;
+        ContainerNumber = ++_lastContainerNumber;
     }
     
     public virtual void EmptyContainer()
@@ -45,5 +45,16 @@ public class Container
             throw new OverflowException();
 
         CargoMass += mass;
+    }
+
+    public override string? ToString()
+    {
+        return "Type: Container" +
+               ", Number: " + ContainerNumber +
+               ", Cargo mass: " + CargoMass + "/" + MaxPayload +
+               ", Max payload: " + MaxPayload +
+               ", Tare weight: " + TareWeight +
+               ", Heigth: " + Height +
+               ", Depth: " + Depth;
     }
 }
