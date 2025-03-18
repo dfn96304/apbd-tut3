@@ -48,4 +48,17 @@ public class RefrigeratedContainer : Container
 
         CargoMass += mass;
     }
+    
+    public override string? ToString()
+    {
+        return "Type: RefrigeratedContainer" +
+               ", Number: " + ContainerNumber +
+               ", Cargo mass: " + CargoMass + " kg / " + MaxPayload + " kg max" +
+               ", Max payload: " + MaxPayload + " kg" +
+               ", Tare weight: " + TareWeight + " kg" +
+               ", Height: " + Height + " cm" +
+               ", Depth: " + Depth + " cm" +
+               ", ProductType: " + ProductType +
+               ", Temperature: " + Temperature;
+    }
 }

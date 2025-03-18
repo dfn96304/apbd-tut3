@@ -10,6 +10,13 @@ public class ContainerShip
 
     private int _totalWeight;
 
+    public ContainerShip(double maxSpeed, int maxContainers, int maxWeightTons)
+    {
+        MaxSpeed = maxSpeed;
+        MaxContainers = maxContainers;
+        MaxWeightTons = maxWeightTons;
+    }
+    
     private void CalculateTotalWeightKg()
     {
         int total = 0;
@@ -99,5 +106,18 @@ public class ContainerShip
         {
             toShip.LoadContainer(container);
         }
+    }
+
+    public override string? ToString()
+    {
+        string containerInfo = "";
+        for (int i = 0; i < containers.Count; i++)
+        {
+            containerInfo += containers[i].ToString()+"\n";
+        }
+        return "ContainerShip\n" +
+               "Max speed: " + MaxSpeed + " knots" + "\n" +
+               "Max containers: " + MaxContainers + "\n" +
+               "Max weight: " + MaxWeightTons + " tons" + "\n" + "Containers:\n" + containerInfo;
     }
 }

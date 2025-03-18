@@ -51,10 +51,10 @@ public class Container
     {
         return "Type: Container" +
                ", Number: " + ContainerNumber +
-               ", Cargo mass: " + CargoMass + "/" + MaxPayload +
-               ", Max payload: " + MaxPayload +
-               ", Tare weight: " + TareWeight +
-               ", Heigth: " + Height +
-               ", Depth: " + Depth;
+               ", Cargo mass: " + CargoMass + " kg / " + MaxPayload + " kg max" +
+               ", Max payload: " + MaxPayload + " kg" +
+               ", Tare weight: " + TareWeight + " kg" +
+               ", Height: " + Height + " cm" +
+               ", Depth: " + Depth + " cm";
     }
 }

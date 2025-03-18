@@ -18,4 +18,15 @@ public class GasContainer : Container, IHazardNotifier
     {
         CargoMass = CargoMass / 20;
     }
+    
+    public override string? ToString()
+    {
+        return "Type: GasContainer" +
+               ", Number: " + ContainerNumber +
+               ", Cargo mass: " + CargoMass + " kg / " + MaxPayload + " kg max" +
+               ", Max payload: " + MaxPayload + " kg" +
+               ", Tare weight: " + TareWeight + " kg" +
+               ", Height: " + Height + " cm" +
+               ", Depth: " + Depth + " cm";
+    }
 }
