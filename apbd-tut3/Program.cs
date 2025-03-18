@@ -1,15 +1,15 @@
 ﻿using apbd_tut3;
 
-Container c1 = new Container(200, 100, 1000, 1000);
+Container c1 = new Container(200, 100, 1000, 1000); // Create a container
 
-c1.LoadContainer(400);
+c1.LoadContainer(400); // Load cargo into a given container
 
 ContainerShip cs1 = new ContainerShip();
 cs1.MaxSpeed = 50.0;
 cs1.MaxContainers = 10000;
 cs1.MaxWeightTons = 10000;
 
-cs1.LoadContainer(c1);
+cs1.LoadContainer(c1); // Load a container onto a ship
 
 List<Container> cl1 = new List<Container>
 {
@@ -18,4 +18,11 @@ List<Container> cl1 = new List<Container>
     new RefrigeratedContainer(200, 200, 1000, 1000, "Bananas", 14)
 };
 
-cs1.LoadContainers(cl1);
+cs1.LoadContainers(cl1); // Load a list of containers onto a ship
+
+Container? removed1 = cs1.RemoveContainerWithNumber(1); // Remove a container from the ship
+
+removed1.EmptyContainer(); // Unload a container
+
+Container? replaced2 = cs1.ReplaceContainerWithNumber(2, removed1); // Replace a container on the ship with a given number with another container
+

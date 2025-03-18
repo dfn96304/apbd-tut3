@@ -2,20 +2,50 @@
 
 public class ContainerShip
 {
-    public List<Container> containers = new List<Container>();
+    private List<Container> containers = new List<Container>();
     
     public double MaxSpeed { get; set; }
     public int MaxContainers { get; set; }
     public int MaxWeightTons { get; set; }
 
+    private int _totalWeight;
+
+    private void CalculateTotalWeightKg()
+    {
+        int total = 0;
+        for (int i = 0; i < containers.Count; i++)
+        {
+            total += containers[i].TareWeight + containers[i].CargoMass;
+        }
+
+        _totalWeight = total;
+    }
+
+    public bool CheckIfContainerCanBeAdded(Container container)
+    {
+        if (_totalWeight + container.TareWeight + container.CargoMass > MaxWeightTons * 1000)
+            throw new ArgumentException("Max weight for ship exceeded");
+        return true;
+    }
+    
     public void LoadContainer(Container container)
     {
+        CheckIfContainerCanBeAdded(container);
         containers.Add(container);
+        CalculateTotalWeightKg();
+    }
+
+    public void LoadContainerAt(int at, Container container)
+    {
+        CheckIfContainerCanBeAdded(container);
+        containers.Insert(at, container);
+        CalculateTotalWeightKg();
     }
 
     public void LoadContainers(List<Container> containers)
     {
-        this.containers.AddRange(containers);
+        for (int i = 0; i < containers.Count; i++)
+            LoadContainer(containers[i]);
     }
 
     public int? FindIndexOfContainerWithNumber(int containerNumber)
@@ -53,8 +83,21 @@ public class ContainerShip
             Container removed = containers[indexForRemoval.Value];
             containers.RemoveAt(indexForRemoval.Value);
             
-            containers.Insert(indexForRemoval.Value, replaceWithContainer);
+            LoadContainerAt(indexForRemoval.Value, replaceWithContainer);
             return removed;
+        }
+    }
+
+    public void TransferContainer(int containerNumber, ContainerShip toShip)
+    {
+        Container? container = RemoveContainerWithNumber(containerNumber);
+        if (container == null)
+        {
+            throw new ArgumentException("Container with number " + containerNumber + " not found");
+        }
+        else
+        {
+            toShip.LoadContainer(container);
         }
     }
 }
