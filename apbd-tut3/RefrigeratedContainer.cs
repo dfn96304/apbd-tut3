@@ -2,7 +2,13 @@
 
 public class RefrigeratedContainer : Container
 {
-    public new const string ContainerType = "C";
+    public override string ContainerType
+    {
+        get
+        {
+            return "C";
+        }
+    }
 
     public static Dictionary<string, double> RefrigeratedProducts = new Dictionary<string, double>()
     {

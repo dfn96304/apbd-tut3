@@ -2,7 +2,13 @@
 
 public class LiquidContainer : Container, IHazardNotifier
 {
-    public new const string ContainerType = "L";
+    public override string ContainerType
+    {
+        get
+        {
+            return "L";
+        }
+    }
     
     public bool HazardousCargo { get; set; }
     

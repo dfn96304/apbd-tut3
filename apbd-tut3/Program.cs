@@ -18,6 +18,10 @@ public class Program
             new LiquidContainer(200, 150, 1000, 1000, true),
             new RefrigeratedContainer(200, 200, 1000, 1000, "Bananas", 14)
         };
+        
+        Console.WriteLine(cl1[0].SerialNumber);
+        Console.WriteLine(cl1[1].SerialNumber);
+
 
         cs1.LoadContainers(cl1); // Load a list of containers onto a ship
 

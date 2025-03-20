@@ -7,7 +7,14 @@ public class Container
     public int TareWeight { get; set; }
     public int Depth { get; set; }
 
-    public const string ContainerType = "C";
+    public virtual string ContainerType
+    {
+        get
+        {
+            return "A"; // Generic container - type "A"
+        }
+    }
+    
     private static int _lastContainerNumber = 0;
     public int ContainerNumber { get; }
     

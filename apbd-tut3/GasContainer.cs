@@ -2,7 +2,13 @@
 
 public class GasContainer : Container, IHazardNotifier
 {
-    public new const string ContainerType = "G";
+    public override string ContainerType
+    {
+        get
+        {
+            return "G";
+        }
+    }
     
     public GasContainer(int height, int tareWeight, int depth, int maxPayload) : base(height, tareWeight, depth, maxPayload)
     {
