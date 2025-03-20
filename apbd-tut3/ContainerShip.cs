@@ -108,6 +108,14 @@ public class ContainerShip
         }
     }
 
+    public string ToStringOnlyShip()
+    {
+        return "ContainerShip\n" +
+               "Max speed: " + MaxSpeed + " knots" + "\n" +
+               "Max containers: " + MaxContainers + "\n" +
+               "Max weight: " + MaxWeightTons + " tons" + "\n";
+    }
+    
     public override string? ToString()
     {
         string containerInfo = "";
@@ -115,9 +123,6 @@ public class ContainerShip
         {
             containerInfo += containers[i].ToString()+"\n";
         }
-        return "ContainerShip\n" +
-               "Max speed: " + MaxSpeed + " knots" + "\n" +
-               "Max containers: " + MaxContainers + "\n" +
-               "Max weight: " + MaxWeightTons + " tons" + "\n" + "Containers:\n" + containerInfo;
+        return ToStringOnlyShip() + "Containers:\n" + containerInfo;
     }
 }
